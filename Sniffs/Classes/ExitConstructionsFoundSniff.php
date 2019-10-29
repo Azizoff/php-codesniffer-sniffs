@@ -2,7 +2,6 @@
 
 namespace Azizov\CodeSniffer\Sniffs\Classes;
 
-
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Files\File;
 
@@ -22,7 +21,7 @@ class ExitConstructionsFoundSniff implements Sniff
      * stack passed in $tokens.
      *
      * @return void
-     * @todo Улучшить реализацию определения функций, текущий вариант может выдавать ложно-положительные результаты
+     * @todo Fix false positive
      */
     public function process(File $phpcsFile, $stackPtr)
     {

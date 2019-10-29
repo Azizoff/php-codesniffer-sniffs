@@ -2,7 +2,6 @@
 
 namespace Azizov\CodeSniffer\Sniffs\Classes;
 
-
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Files\File;
 

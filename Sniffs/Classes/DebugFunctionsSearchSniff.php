@@ -21,7 +21,7 @@ class DebugFunctionsSearchSniff implements Sniff
      * stack passed in $tokens.
      *
      * @return void
-     * @todo Улучшить реализацию определения функций, текущий вариант может выдавать ложно-положительные результаты
+     * @todo Fix false positive
      */
     public function process(File $phpcsFile, $stackPtr)
     {
