@@ -1,0 +1,1 @@
+# Code sniffer custom rules
