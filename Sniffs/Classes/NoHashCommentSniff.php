@@ -29,10 +29,16 @@ class NoHashCommentSniff implements Sniff
     public function process(File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
-        if ($tokens[$stackPtr]['content']{0} === '#') {
-            $error = 'Hash comments are prohibited; found %s';
-            $data = array(trim($tokens[$stackPtr]['content']));
-            $phpcsFile->addError($error, $stackPtr, 'Found', $data);
+        if (mb_strpos($tokens[$stackPtr]['content'], '#', 0, 'utf-8') !== 0) {
+            return;
         }
+
+        if (PHP_VERSION_ID >= 80000 && preg_match('/^#\[.*]/', $tokens[$stackPtr]['content']) === 0) {
+            return;
+        }
+
+        $error = 'Hash comments are prohibited; found %s';
+        $data = array(trim($tokens[$stackPtr]['content']));
+        $phpcsFile->addError($error, $stackPtr, 'Found', $data);
     }
 }
